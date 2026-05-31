@@ -16,7 +16,7 @@ MARKDOWN_COMPILER := bash $(_SCRIPTS_DIR)compile-markdown.sh
 # =============================================================================
 
 MD_FILE ?=
-MD_FILES := $(shell find . -type f -name "*.md" -not -path "./$(BUILD_DIR)/*")
+MD_FILES := $(shell find . -type f -name "*.md" -not -path "./$(BUILD_DIR)/*" -not -path "./.venv/*")
 HTML_FILES := $(patsubst %.md,$(BUILD_DIR)/%.html,$(MD_FILES))
 
 # =============================================================================

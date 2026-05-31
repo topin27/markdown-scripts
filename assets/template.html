@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <style>
+    h1.title {
+        text-align: center;
+    }
+
+    body {
+        max-width: 854px;
+        margin:0 auto;
+        font-size: 14px;
+        line-height: 1.6;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding: 30px;
+        font-family: 'Open sans', Helvetica, arial, sans-serif;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 24px;
+        border-spacing: 0;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+    table th {
+        padding: 3px 10px;
+        background-color: white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid black;
+    }
+    table td {
+        padding: 3px 10px;
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+        border-right: none;
+    }
+
+    img {
+        border: 1px solid;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%; /* You can change this value to your preferred max size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    figure img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    figure figcaption {
+        text-align: center;
+    }
+
+    pre code {
+        display: block;
+        background: #f4f4f4;
+        border: 2px solid grey;
+    }
+
+    p code {
+       background: #f4f4f4;
+    }
+
+    span.math.display {
+        border: 1px solid;
+        margin: auto;
+        display: table;
+    }
+
+    blockquote {
+        border-left: 4px solid #dddddd;
+        padding: 0 1em;
+        color: #777777;
+    }
+
+    /*
+     * The floating menu below.
+
+    #TOC {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        width: 220px;
+        padding: 15px;
+        background-color: #f8f8f8;
+        border: 1px solid #e7e7e7;
+        font-family: 'Open sans', Helvetica, arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
+    }
+
+    #TOC ul ul {
+        display: none;
+        padding-left: 20px;
+    }
+
+    #TOC li:hover > ul {
+        display: block;
+    }
+    */
+  </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+$if(math)$
+  $math$
+$endif$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+<header id="title-block-header">
+<h1 class="title">$title$</h1>
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+$for(author)$
+<p class="author">$author$</p>
+$endfor$
+$if(date)$
+<p class="date">$date$</p>
+$endif$
+$if(abstract)$
+<div class="abstract">
+<div class="abstract-title">$abstract-title$</div>
+$abstract$
+</div>
+$endif$
+</header>
+$endif$
+$if(toc)$
+<nav id="$idprefix$TOC" role="doc-toc">
+$if(toc-title)$
+<h2 id="$idprefix$toc-title">$toc-title$</h2>
+$endif$
+$table-of-contents$
+</nav>
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>

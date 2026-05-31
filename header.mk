@@ -31,8 +31,13 @@ help:  ## Show help message.
 
 all: $(HTML_FILES)  ## Build all markdown files.
 	@echo "Syncing assets to build directory..."
-	@rsync -a --prune-empty-dirs --exclude='*.md' --exclude='$(BUILD_DIR)/' \
-		--exclude='scripts/' --exclude='.git' --checksum . $(BUILD_DIR)/
+	@rsync -a --prune-empty-dirs \
+		--exclude='*.md' \
+		--exclude='$(BUILD_DIR)/' \
+		--exclude='scripts/' \
+		--exclude='.git/' \
+		--exclude='.venv/' \
+		--checksum . $(BUILD_DIR)/
 
 _check_md_set:
 	@if [ -z "$(MD_FILE)" ]; then echo "Error: MD_FILE is not set."; exit 1; fi

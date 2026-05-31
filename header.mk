@@ -26,7 +26,7 @@ HTML_FILES := $(patsubst %.md,$(BUILD_DIR)/%.html,$(MD_FILES))
 .PHONY: all help build clean check
 
 help:  ## Show help message.
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
+	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 all: $(HTML_FILES)  ## Build all markdown files.

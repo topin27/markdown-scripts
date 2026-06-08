@@ -58,4 +58,4 @@ check:  ## Check for orphaned resource files (non-md files not linked by any mar
 
 $(BUILD_DIR)/%.html: %.md
 	@mkdir -p $(dir $@)
-	@bash $(_SCRIPTS_DIR)compile-markdown.sh -o $@ $<
+	@$(MARKDOWN_COMPILER) -o $@ $<

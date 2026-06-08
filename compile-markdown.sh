@@ -64,11 +64,17 @@ fi
 ABS_INPUT_FILE="$(realpath "$INPUT_FILE")"
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 LINK_FILTER_SCRIPT="${SCRIPT_DIR}/process_links.py"
+DIAGRAM_FILTER_SCRIPT="${SCRIPT_DIR}/process_diagrams.py"
 TEMPLATE_FILE="${SCRIPT_DIR}/assets/template.html"
 
 # 检查依赖文件
 if [ ! -f "$LINK_FILTER_SCRIPT" ]; then
     echo "Error: Link filter script not found at '$LINK_FILTER_SCRIPT'" >&2
+    exit 1
+fi
+
+if [ ! -f "$DIAGRAM_FILTER_SCRIPT" ]; then
+    echo "Error: Diagram filter script not found at '$DIAGRAM_FILTER_SCRIPT'" >&2
     exit 1
 fi
 
@@ -85,9 +91,10 @@ pandoc \
     --standalone \
     --toc \
     -N \
-    --mathjax \
+    --mathml \
     --metadata "source_file=$ABS_INPUT_FILE" \
     --filter "$LINK_FILTER_SCRIPT" \
+    --filter "$DIAGRAM_FILTER_SCRIPT" \
     --template "$TEMPLATE_FILE" \
     -o "$OUTPUT_FILE"
 

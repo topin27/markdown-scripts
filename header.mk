@@ -14,7 +14,7 @@ MARKDOWN_COMPILER := bash $(_SCRIPTS_DIR)compile-markdown.sh
 # File Discovery
 # =============================================================================
 
-MD_FILES := $(shell find . -type f -name "*.md" -not -path "./.venv/*")
+MD_FILES := $(shell find . -type f -name "*.md" -not -path "./.venv/*" -not -path "./scripts/*")
 HTML_FILES := $(patsubst %.md,%.html,$(MD_FILES))
 
 # =============================================================================

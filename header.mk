@@ -31,7 +31,11 @@ all: $(HTML_FILES)  ## Build all markdown files.
 
 clean:  ## Remove all generated HTML files.
 	@echo "Cleaning up HTML files..."
-	@find . -type f -name "*.html" -not -path "./.venv/*" -not -path "./.git/*" -delete
+	@find . -type f -name "*.html" \
+		-not -path "./.venv/*" \
+		-not -path "./scripts/*" \
+		-not -path "./.git/*" \
+		-delete
 
 check:  ## Check for orphaned resource files (non-md files not linked by any markdown).
 	@bash $(_SCRIPTS_DIR)check-orphaned.sh
